@@ -1,0 +1,14 @@
+<ol class="breadcrumb">
+  <span>Olá, 
+    <b><%= link_to current_usuario.nome%></b>. | 
+    Endereço de IP: <b><%= current_usuario.current_sign_in_ip%></b>. | 
+    Último login ás: <b><%= current_usuario.current_sign_in_at%></b>. | 
+    Qtde. login: <b><%= current_usuario.sign_in_count%></b>.
+  </span>
+</ol>
+<div class="page-header", style="margin: 0 0 0 0;">
+	 <h1>Fale Conosco</h1>
+</div>
+<%= render 'form' %>
+
+<!--%= link_to 'Back', contacts_path %-->

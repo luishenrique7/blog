@@ -1,0 +1,45 @@
+<%= form_for(@upload, :html => { :multipart => true }) do |f| %>
+  <% if @upload.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Ops, <%= pluralize(@upload.errors.count, "erro") %>!</h2>
+
+      <ul>
+      <% @upload.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+<div class="col-lg-6">
+  <div class="control-group">
+    <%= f.label :nome, :class => 'control-label' %> 
+    <div class="controls">
+      <%= f.text_field :nome, :class => 'form-control'  %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :descricao, :class => 'control-label' %> 
+    <div class="controls">
+      <%= f.text_field :descricao, :class => 'form-control'  %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+      <div class="controls">
+    <%= f.file_field :image, :class => 'form-control'  %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Enviar", class: 'btn btn-primary form-control' %>
+  </div>
+</div>
+</div>
+
+<% end %>

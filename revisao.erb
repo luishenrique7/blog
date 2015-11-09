@@ -1,0 +1,24 @@
+rails new blog -d mysql
+
+//entrar na pasta
+
+//configurar o database.yml
+
+//rake db:create
+
+rails g scaffold produto descricao:string estoque:double valor:decimal{8.2}
+rails g scaffold ItemVenda venda:references produto:references qtde:int valor:decimal{8.2}
+
+//criar apenas o modelo --gera a Mmigrate e os models
+rails g model ItemVenda venda:references produto:references qtde:int valor:decimal{8.2}
+
+rake db:migrate
+
+class Venda
+	//só um cliente na venda
+	belong_to :cliente
+
+	//vários itens na venda
+	has_many :item_Venda
+end
+

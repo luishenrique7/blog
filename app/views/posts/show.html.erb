@@ -1,0 +1,32 @@
+
+<% if notice.present? %>
+  <div class="alert alert-success"><%= notice %></div>
+<% end %>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @post.usuario.nome %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @post.titulo %>
+</p>
+
+<p>
+  <strong>Conteudo:</strong>
+  <%= @post.conteudo %>
+</p>
+
+<p>
+  <strong>Comentários:</strong>
+  <% @post.comentarios.each do |comentario| %>
+    <br><%= comentario.descricao %> - <%= comentario.usuario.nome %>
+    <hr>
+  <% end %>
+</p>
+
+<center>
+  <%= link_to 'Editar', edit_post_path(@post), class: 'btn btn-primary' %> |
+  <%= link_to 'Voltar', posts_path, class: 'btn btn-primary' %>
+</center>

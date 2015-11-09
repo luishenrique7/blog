@@ -1,0 +1,93 @@
+<h2>Increver-se</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+<div class="row">
+      <div class="col-lg-6">
+  <div class="control-group">
+    <%= f.label :email %>
+    <div class="controls">
+      <%= f.email_field :email, autofocus: true, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <% if @minimum_password_length %>
+        <em>(Mínimo de <%= @minimum_password_length %> caracteres)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :nome, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:nome]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :cpf, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cpf, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:cpf]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :cep, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cep, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:cep]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :endereco, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :endereco, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:endereco]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :numero, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :numero, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:numero]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :bairro, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bairro, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:bairro]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :cidade, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cidade, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:cidade]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :uf, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :uf, :class => 'form-control' %>
+    </div>
+    <%= error_span(@usuario[:uf]) %>
+  </div>
+<br/>
+  <div class="actions">
+    <%= f.submit "Registrar", class: 'btn btn-primary form-control' %>
+  </div>
+  </div>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

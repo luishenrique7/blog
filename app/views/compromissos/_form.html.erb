@@ -1,0 +1,42 @@
+<%= form_for(@compromisso) do |f| %>
+  <% if @compromisso.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Ops, <%= pluralize(@compromisso.errors.count, "erro") %>!</h2>
+
+      <ul>
+      <% @compromisso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+<div class="col-lg-6">
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo,  :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :texto, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :texto,  :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :date,  :class => 'form-control' %>
+    </div>
+  </div>
+
+<br/>
+  <div class="control-group">
+    <%= f.submit "Salvar Compromisso", class: 'btn btn-primary form-control' %>
+  </div>
+  </div>
+  </div>
+<% end %>

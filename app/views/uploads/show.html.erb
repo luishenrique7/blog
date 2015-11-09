@@ -1,0 +1,23 @@
+
+<center>
+<p>
+  <!--strong>Image:</strong-->
+  <%= image_tag(@upload.image.url(:medium)) %>
+</p>
+</center>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @upload.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @upload.descricao %>
+</p>
+
+
+<center>
+	<%= link_to 'Editar', edit_upload_path(@upload), class: 'btn btn-primary' %> |
+	<%= link_to 'Voltar', uploads_path, class: 'btn btn-primary' %>
+</center>

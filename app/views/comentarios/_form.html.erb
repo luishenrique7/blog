@@ -1,0 +1,41 @@
+<%= form_for(@comentario) do |f| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+      <ul>
+      <% @comentario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+<div class="col-lg-6">
+  <div class="control-group">
+    <%= f.label :usuario_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :usuario_id, Usuario.all, :id, :nome, { include_blank: true }, class: 'form-control' %>
+    </div>
+    <%= error_span(@comentario[:usuario_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :post_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :post_id, Post.all, :id, :titulo, { include_blank: true }, class: 'form-control' %>
+    </div>
+    <%= error_span(@comentario[:post_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :descricao, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :descricao, :class => 'form-control', rows: 5 %>
+    </div>
+    <%= error_span(@comentario[:descricao]) %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit 'Comentar', class: 'btn btn-primary form-control' %>
+  </div>
+  </div>
+  </div>
+<% end %>

@@ -1,0 +1,38 @@
+<div class="page-header", style="margin: 0 0 0 0;">
+  <h1>Login</h1>
+</div>
+<br/><br/>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="control-group">
+        <%= f.label :email, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder=> "exemplo@exemplo.com" %>
+          </div>
+        </div>
+        <br/>
+        <div class="control-group">
+        <%= f.label :senha, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder=> "8 à 32 caracteres"  %>
+          </div>
+        </div>
+        <br/>
+        <% if devise_mapping.rememberable? -%>
+          <div class="control-group">
+            <%= f.check_box :remember_me%>
+            <%= f.label :remember_me, :class => 'control-label'  %>
+          </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "Entrar", class: 'btn btn-primary form-control'  %>
+        </div>
+        <br/>
+        <center>
+          <%= render "devise/shared/links" %>
+        </center>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @comentario.usuario %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @comentario.post %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @comentario.descricao %>
+</p>
+
+<center>
+	<%= link_to 'Editar', edit_comentario_path(@comentario), class: 'btn btn-primary' %> |
+	<%= link_to 'Voltar', comentarios_path, class: 'btn btn-primary' %>
+</center>

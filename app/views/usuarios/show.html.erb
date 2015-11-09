@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>Usuário</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Nome:</strong></dt>
+  <dd><%= @usuario.nome %></dd>
+
+  <dt><strong>CPF:</strong></dt>
+  <dd><%= @usuario.cpf %></dd>
+
+  <dt><strong>CEP:</strong></dt>
+  <dd><%= @usuario.cep %></dd>
+
+  <dt><strong>Endereço:</strong></dt>
+  <dd><%= @usuario.endereco %></dd>
+
+  <dt><strong>Número:</strong></dt>
+  <dd><%= @usuario.numero %></dd>
+
+  <dt><strong>Bairro:</strong></dt>
+  <dd><%= @usuario.bairro %></dd>
+
+  <dt><strong>Cidade:</strong></dt>
+  <dd><%= @usuario.cidade %></dd>
+
+  <dt><strong>UF:</strong></dt>
+  <dd><%= @usuario.uf %></dd>
+
+  <dt><strong>E-mail:</strong></dt>
+  <dd><%= @usuario.email %></dd>
+</dl>
+
+<%= link_to 'Voltar', usuarios_path, :class => 'btn btn-default'  %>
+<%= link_to 'Editar', edit_usuario_path(@usuario), :class => 'btn btn-default' %>
+<%= link_to 'Excluir', usuario_path(@usuario), :method => 'delete', :data => { :confirm => 'Confirma exclusão?' }, :class => 'btn btn-danger' %>

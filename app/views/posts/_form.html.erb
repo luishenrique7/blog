@@ -1,0 +1,38 @@
+<%= form_for @post, :html => { :class => "form-horizontal post" } do |f| %>
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <p><strong>Ops, ocorreram erros de validação:</strong></p>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+<div class="col-lg-6">
+  <div class="control-group">
+    <%= f.label :usuario_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :usuario_id, Usuario.all, :id, :nome, { include_blank: true }, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :conteudo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :conteudo, :class => 'form-control' %>
+    </div>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit nil, class: 'btn btn-primary form-control' %>
+  </div>
+  </div>
+  </div>
+<% end %>

@@ -1,0 +1,72 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div class="alert alert-danger">
+      <h2>Ops,<%= pluralize(@contact.errors.count, "erro") %>!</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>Dúvidas, reclamações, elogios ou sugestões? Este é o seu canal de comunicação conosco. Utilize-o quando não encontrar o serviço que desejar.
+    </h4>
+
+<div class="row">
+<div class="col-lg-6">
+<div class="control-group">
+            <%= f.label :nome, :class => 'control-label'  %>
+            <div class="controls">
+              <%= f.text_field :nome,  :class => 'form-control'  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :email, :class => 'control-label'   %>
+            <div class="controls">
+              <%= f.text_field :email,  :class => 'form-control'  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :telefone, :class => 'control-label'   %>
+            <div class="controls">
+             <%= f.text_field :telefone,  :class => 'form-control'  %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :assunto, :class => 'control-label'   %>
+            <div class="controls">
+              <%= f.text_field :assunto,  :class => 'form-control'  %>
+            </div>
+          </div>
+          
+          <!--<div class="control-group">
+          <label>Assunto</label>
+            <select name="assunto" id="assunto" class="form-control" f.select :assunto>
+              <option value="0"></option>
+              <option value="1">Dúvida</option>
+              <option value="2">Elogio</option>
+              <option value="3">Informação</option>
+              <option value="4">Reclamação</option>
+              <option value="5">Solicitação</option>
+              <option value="6">Sugestão</option>
+              <option value="7">Outros</option>
+            </select>
+          </div>-->
+
+          <div class="control-group">
+            <%= f.label :mensagem, :class => 'control-label'   %>
+            <div class="controls">
+              <%= f.text_area :mensagem,  :class => 'form-control'  %>
+            </div>
+          </div>
+          <br/>
+          <div class="actions">
+           <%= f.submit "Enviar", class: 'btn btn-primary form-control' %>
+          </div>
+          </div>
+          </div>
+<% end %>
